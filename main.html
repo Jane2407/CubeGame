@@ -1,0 +1,151 @@
+<!doctype HTML>
+<head>
+
+	<title>Cube game</title>
+	 <link rel="stylesheet" href="style.css">
+	
+</head>
+
+<body>
+
+	<h1>Cube game</h1>
+	
+	
+	
+	<canvas width="639" height="639"> </canvas>
+
+	<p id="lives">Your lifes will be here</p>
+	<p id="key">You don't have the key</p>
+	
+	<h2> Player movement:<br></h2>
+	<h3>A - move left <br>
+	D - move right <br></h3>
+	<h2>Level rotation:<br></h2>
+	<h3>Q - rotate counterclockwise <br>
+	E - rotate clockwise</h3>
+</body>
+
+
+<script type="text/javascript" src="key.js"> </script>
+<script type="text/javascript" src="bricks.js"> </script>
+<script type="text/javascript" src="box.js"> </script>
+<script type="text/javascript" src="spikes.js"> </script>
+<script type="text/javascript" src="door.js"> </script>
+<script type="text/javascript" src="player.js"> </script>
+<script type="text/javascript" src="world.js"> </script>
+<script type="text/javascript" src="worldController.js"> </script>
+<script type="text/javascript" src="mainAc.js"> </script>
+
+
+<!--
+<script type="text/javascript" src="level.js"> </script>
+
+<script type="text/javascript" src="door.js"> </script>
+
+
+
+	
+
+	
+	var door={
+		image: "images/door.png",
+		sourceX: 0,
+		sourceY:0,
+		size: 64,
+		curFrame:0,
+		numFrames:1,
+		
+		x:64,
+		y:575,
+
+		isOpen: false,
+		
+		updateAnimation: function(){
+			if (player.hasKey) {
+				this.curFrame=1;
+			} else {
+				this.curFrame=0;
+			}
+			this.sourceX= this.curFrame*this.size;
+		},
+	}
+
+	var canvas= document.querySelector("canvas");
+	var drawingSurface= canvas.getContext("2d");
+
+	var newKeyImage= new Image();
+	newKeyImage.src= key.image;
+	
+	var newDoorImage= new Image();
+	newDoorImage.src= door.image;
+
+	var newPlayerImage= new Image();
+	newPlayerImage.addEventListener("load", loadHandler);
+	newPlayerImage.src= player.image;
+
+	document.addEventListener("keydown", onKeyDown, false);
+	document.addEventListener("keyup", onKeyUp, false );
+
+	function startGame() {
+
+
+	}
+
+	function onKeyDown (event) {
+		player.keyCode = event.which;
+		player.moving();
+		checkKey();
+		console.log(player.x,player.y);
+		console.log(player.hasKey);
+	}
+
+	function onKeyUp (event) {
+		player.keyCode = 0;
+	}
+
+	function loadHandler() {
+		setInterval(update,100);
+
+	}
+
+	function update() {
+		player.updateAnimation();
+		door.updateAnimation();
+		render();
+
+
+		if(player.y<575){
+			player.isFalling=true;
+			player.falling();
+		} 
+
+
+	}
+
+	function render() {
+		drawingSurface.clearRect(0,0,canvas.width,canvas.height);
+		drawingSurface.drawImage(newDoorImage,door.sourceX,door.sourceY,door.size,door.size,
+									door.x,door.y,64,64);
+		drawingSurface.drawImage(newPlayerImage,player.sourceX,player.sourceY,player.size,player.size, //source pixels
+								 player.x,player.y,64,64
+								);
+		
+		
+		if(!player.hasKey){
+			drawingSurface.drawImage(newKeyImage,key.sourceX,key.sourceY,key.size,key.size,
+									 key.x,key.y,64,64
+									);
+			
+		}
+	}
+
+
+	function checkKey() {
+		if (player.x>key.x&&player.x<key.x+key.size){
+			player.hasKey=true;
+		} 
+	}
+
+
+</script>
+-->

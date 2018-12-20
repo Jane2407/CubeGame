@@ -1,0 +1,36 @@
+body {
+  background-color: white;
+}
+
+
+h1 { 
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  color: red;
+}
+
+h3 { 
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  color: black;
+}
+
+h2 { 
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  color: black;
+}
+
+p { 
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  color: black;
+}
+
+canvas {
+	border: 1 px dashed black;
+    padding: 0;
+    margin: auto;
+    display: block;
+
+}
